@@ -58,13 +58,11 @@ eda_web_report(sub_pharma_df)
 
 # Model output
 
-library(plm)
-
 data(penguins, package = "palmerpenguins")
 
-model1 <- plm(body_mass_g ~ bill_length_mm + bill_depth_mm, data=penguins, index=c("island", "year"), model="within")
-model2 <- plm(body_mass_g ~ bill_length_mm + bill_depth_mm + flipper_length_mm, data=penguins, index=c("island", "year"), model="within")
-model3 <- plm(body_mass_g ~ bill_length_mm + bill_depth_mm + flipper_length_mm + species, data=penguins, index=c("island", "year"), model="within")
+model1 <- lm(body_mass_g ~ bill_length_mm + bill_depth_mm, data=penguins)
+model2 <- lm(body_mass_g ~ bill_length_mm + bill_depth_mm + flipper_length_mm, data=penguins)
+model3 <- lm(body_mass_g ~ bill_length_mm + bill_depth_mm + flipper_length_mm + species, data=penguins)
 
 library(stargazer)
 
